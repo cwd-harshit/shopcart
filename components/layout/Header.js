@@ -5,8 +5,10 @@ import { SiBigcartel } from "react-icons/si";
 import { BsSearch, BsCart4 } from "react-icons/bs";
 import { RiAccountBoxLine } from "react-icons/ri";
 import { FiMenu } from "react-icons/fi";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const count = useSelector((state) => state.cart.cartTotalQuantity);
   return (
     <div>
       <Top_Header />
@@ -59,7 +61,7 @@ const Header = () => {
             <div>
               <div className="header__user_">
                 <BsCart4 className="header__user__icon" />
-                <span className="cart-span">1</span>
+                <span className="cart-span">{count}</span>
               </div>
               <p>Cart</p>
             </div>
@@ -68,7 +70,7 @@ const Header = () => {
         <div className="header__mob">
           <div className="header__user_">
             <BsCart4 className="header__user__icon" />
-            <span className="cart-span">1</span>
+            <span className="cart-span">{count}</span>
           </div>
           <div>
             <FiMenu className="header__user__icon" />
